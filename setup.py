@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="neuraleduseg",
-    version="0.1.0",
+    version="1.0.0",
     description="Discourse segmentation",
     license="Apache License 2.0",
     url="https://github.com/rknaebel/NeuralEDUSeg",

@@ -4,8 +4,6 @@ import os
 import random
 import subprocess
 
-import numpy as np
-import spacy
 import tensorflow as tf
 
 from neuraleduseg.config import parse_args
@@ -73,6 +71,8 @@ def segment(args):
     """
     Segment raw text into edus.
     """
+    import spacy
+
     logger = logging.getLogger('SegEDU')
     rst_data = RSTData()
     logger.info('Loading the model...')
@@ -127,14 +127,7 @@ def main():
     args = parse_args()
     logger = logging.getLogger("SegEDU")
     logger.info('Running with args : {}'.format(args))
-
-    os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    if args.gpu is not None:
-        os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
-
-    random.seed(args.seed)
-    np.random.seed(args.seed)
-    tf.compat.v1.set_random_seed(args.seed)
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
     if args.prepare:
         prepare(args)

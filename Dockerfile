@@ -9,8 +9,11 @@ RUN python -c "import tensorflow_hub as hub; hub.Module('https://tfhub.dev/googl
 RUN spacy download en
 
 COPY neuraleduseg neuraleduseg
+COPY app app
+COPY build /build
 COPY setup.py .
 COPY scripts scripts
 RUN pip install -e .
 
-ENTRYPOINT bash scripts/run.sh
+EXPOSE 8080
+ENTRYPOINT python app/api.py 0.0.0.0 --port 8080 --model_dir /build/models

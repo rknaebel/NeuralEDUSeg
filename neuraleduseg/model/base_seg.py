@@ -14,7 +14,6 @@ class BaseSegModel:
         # basic config
         self.hidden_size = args.hidden_size
         self.window_size = args.window_size
-        self.optim_type = args.optim
         self.learning_rate = args.learning_rate
         self.weight_decay = args.weight_decay
         self.max_grad_norm = args.max_grad_norm
