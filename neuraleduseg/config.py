@@ -32,7 +32,7 @@ def get_argparser():
     path_settings = parser.add_argument_group('path settings')
     path_settings.add_argument('--rst_dir', default='../data/rst/',
                                help='the path of the rst data directory')
-    path_settings.add_argument('--input_files', nargs='+',
+    path_settings.add_argument('--input_file',
                                help='list of files that contain the instances to segment')
     path_settings.add_argument('--model_dir', default=MODEL_DIR,
                                help='the dir to save the model')

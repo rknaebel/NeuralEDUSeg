@@ -10,7 +10,6 @@ import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
 from pydantic.main import BaseModel
 
 from neuraleduseg.model.atten_seg import AttnSegModel
@@ -21,7 +20,6 @@ app = FastAPI(
     version="1.0.0",
     description="RST-based discourse segmentation via neural networks.",
 )
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/pages")
 
 model: AttnSegModel = None
