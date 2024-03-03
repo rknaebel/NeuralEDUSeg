@@ -92,7 +92,7 @@ def segment(args):
                 if line:
                     raw_sents.append(line)
         samples = []
-        for sent in spacy_nlp.pipe(raw_sents, batch_size=1000, n_threads=5):
+        for sent in spacy_nlp.pipe(raw_sents, batch_size=1000):
             samples.append({'words': [token.text for token in sent],
                             'edu_seg_indices': []})
         rst_data.test_samples = samples
